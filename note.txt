@@ -77,3 +77,9 @@ Data binding in angular
 1.2.2----$event binding (eventname)="method($event)" ---accessing data when event runs
 1.2.3--- event binding with template rendering varriable  #variableName
 
+2=two way binding
+
+  2.1 ngModel  [(ngModel)]="varriable"
+          - formsmodule - module used to apply ngModel
+
+          

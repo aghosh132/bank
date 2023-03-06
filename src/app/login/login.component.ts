@@ -13,8 +13,8 @@ export class LoginComponent {
   
   //accno=""
   //or
-  // acno:any
-  // psw:any
+  acno:any
+  psw:any
 userDetails:any={
 
 1000:{username:"anu",accno:1000,password:"abc123",balance:0},
@@ -23,26 +23,26 @@ userDetails:any={
 1003:{username:"subin",accno:1003,password:"abc143",balance:0}
 }
 
-// login(){
+login(){
 
-// var acnum=this.acno
-// var psw=this.psw
-// var userDetails=this.userDetails
-// if (acnum in userDetails) {
-//   if (psw==userDetails[acnum]["password"]) {
-//     alert('login success')
-//   }
-//   else{
-//     alert('incorrect password')
-//   }
-// }
-// else{
-//   alert('incorrect accnumber')
-// }
+var acnum=this.acno
+var psw=this.psw
+var userDetails=this.userDetails
+if (acnum in userDetails) {
+  if (psw==userDetails[acnum]["password"]) {
+    alert('login success')
+  }
+  else{
+    alert('incorrect password')
+  }
+}
+else{
+  alert('incorrect accnumber')
+}
 
+}
 
-
- 
+}
 
 
 
@@ -61,23 +61,23 @@ userDetails:any={
 // }
 // }
 
-login(acnum:any,psw:any){
-console.log(acnum.value,psw.value);
+// login(acnum:any,psw:any){
+// console.log(acnum.value,psw.value);
 
-  var acnum=acnum.value
-  var psw=psw.value
-  var userDetails=this.userDetails
-  if (acnum in userDetails) {
-    if (psw==userDetails[acnum]["password"]) {
-      alert('login success')
-    }
-    else{
-      alert('incorrect password')
-    }
-  }
-  else{
-    alert('incorrect accnumber')
-  }
-} 
-} 
+//   var acnum=acnum.value
+//   var psw=psw.value
+//   var userDetails=this.userDetails
+//   if (acnum in userDetails) {
+//     if (psw==userDetails[acnum]["password"]) {
+//       alert('login success')
+//     }
+//     else{
+//       alert('incorrect password')
+//     }
+//   }
+//   else{
+//     alert('incorrect accnumber')
+//   }
+// } 
+
 
