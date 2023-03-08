@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,10 +8,18 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+constructor(private router:Router){
+
+
+}
+
+
+
+
+
+
   data="your perfect banking partner"
   data1="Enter Your Acc Number"
-   
-  
   //accno=""
   //or
   acno:any
@@ -31,6 +40,8 @@ var userDetails=this.userDetails
 if (acnum in userDetails) {
   if (psw==userDetails[acnum]["password"]) {
     alert('login success')
+//redirection
+this.router.navigateByUrl("dashboard")
   }
   else{
     alert('incorrect password')

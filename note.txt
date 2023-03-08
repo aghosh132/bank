@@ -82,4 +82,41 @@ Data binding in angular
   2.1 ngModel  [(ngModel)]="varriable"
           - formsmodule - module used to apply ngModel
 
-          
+
+
+path setting in angular
+----------------------
+
+--path set in root module routing file
+-each page need different paths
+--landing page paths is empty 
+
+Redirection In angular
+--------------------
+
+method --- naviagateByUrl(path)
+class----- router
+module------ AppRoutingModule
+
+
+
+folder --- file ---- class --- methods
+
+package   module
+
+Dependancy Injection
+---------------------
+
+to use a method of class in another class
+
+in constructor 
+accessSpecifier reference:className
+
+----------- access specifier --private / public 
+-------------private : can use the injecting class only in that class
+-------------public : can use the injecting class in other classess of that file
+
+
+
+
+
