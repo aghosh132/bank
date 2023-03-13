@@ -1,5 +1,7 @@
+import { R3SelectorScopeMode } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from '../service/data.service';
 
 @Component({
   selector: 'app-login',
@@ -8,48 +10,58 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-constructor(private router:Router){
+constructor(private router:Router,private ds:DataService){
 
 
 }
-
-
-
-
-
-
   data="your perfect banking partner"
   data1="Enter Your Acc Number"
   //accno=""
   //or
   acno:any
   psw:any
-userDetails:any={
+// userDetails:any={
 
-1000:{username:"anu",accno:1000,password:"abc123",balance:0},
-1001:{username:"abu",accno:1001,password:"abc12",balance:0},
-1002:{username:"sha",accno:1002,password:"abc132",balance:0},
-1003:{username:"subin",accno:1003,password:"abc143",balance:0}
-}
+// 1000:{username:"anu",accno:1000,password:"abc123",balance:0},
+// 1001:{username:"abu",accno:1001,password:"abc12",balance:0},
+// 1002:{username:"sha",accno:1002,password:"abc132",balance:0},
+// 1003:{username:"subin",accno:1003,password:"abc143",balance:0}
+// }
 
 login(){
 
 var acnum=this.acno
 var psw=this.psw
-var userDetails=this.userDetails
-if (acnum in userDetails) {
-  if (psw==userDetails[acnum]["password"]) {
-    alert('login success')
-//redirection
-this.router.navigateByUrl("dashboard")
-  }
-  else{
-    alert('incorrect password')
-  }
+
+const result=this.ds.login(acnum,psw)
+
+if (result) {
+  alert("login success")
+  this.router.navigateByUrl("dashboard")
 }
 else{
-  alert('incorrect accnumber')
+  alert("incorrect password or accnumber")
 }
+
+
+
+
+
+
+// var userDetails=this.ds.userDetails
+// if (acnum in userDetails) {
+//   if (psw==userDetails[acnum]["password"]) {
+//     alert('login success')
+// //redirection
+// this.router.navigateByUrl("dashboard")
+//   }
+//   else{
+//     alert('incorrect password')
+//   }
+// }
+// else{
+//   alert('incorrect accnumber')
+// }
 
 }
 

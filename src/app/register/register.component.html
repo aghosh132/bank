@@ -1,1 +1,31 @@
-<p>register works!</p>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div  id="c4">
+        <form style="height: 300px; margin-left: 100px; background-color: rgba(66, 71, 74, 0.14);" class="container  p-5 mt-5 " action="">
+            <h1 style="color: rgb(122, 127, 131);" class="text-center ">Sign IN</h1>
+            <div id="c1">
+                <input [(ngModel)]="acno"  id="s1" name="acno" class="form-control mt-3 " type="text" placeholder="Enter Account Number">
+            </div>
+            <div id="c1">
+                <input [(ngModel)]="uname"  id="s2" name="uname" class="form-control mt-3 " type="text" placeholder="Enter Username">
+            </div>
+            <div id="c2">
+                <input [(ngModel)]="psw" id="s3" name="Password" class="form-control mt-3" type="text" placeholder="Enter Password">
+            </div>
+            <div (click)="register()" class=" text-center mt-3">
+                <button class="btn btn-secondary ">Sign UP</button>
+    
+    
+            </div>
+        </form>
+    </div>
+</body>
+</html>

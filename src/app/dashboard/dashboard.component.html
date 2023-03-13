@@ -1,1 +1,43 @@
-<p>dashboard works!</p>
+<h1>WELCOME {{user}}</h1>
+
+
+
+<div  id="c5">
+    <form style="height: 300px; margin-left: 100px; background-color: rgba(66, 71, 74, 0.14);" class="container w-25 p-5 mt-5 " action="">
+        <h1 style="color: rgb(122, 127, 131);" class="text-center ">Deposit</h1>
+        <div>
+            <input [(ngModel)]="acno"   id="s6" name="acnos" class="form-control mt-3 " type="text" placeholder="Enter Account Number">
+        </div>
+        <div>
+            <input [(ngModel)]="psw" id="s7" name="unames" class="form-control mt-3 " type="password" placeholder="Enter Password">
+        </div>
+        <div>
+            <input [(ngModel)]="amnt"  id="s8" name="Passwords" class="form-control mt-2" type="text" placeholder="Enter Amount">
+        </div>
+        <div  class=" text-center mt-3">
+            <button (click)="deposit()" class="btn btn-secondary ">Deposit</button>
+
+
+        </div>
+    </form>
+</div>
+
+<div  id="c5">
+    <form style="height: 300px; margin-left: 900px; background-color: rgba(66, 71, 74, 0.14);" class="container w-25 p-5 mt-2 " action="">
+        <h1 style="color: rgb(122, 127, 131);" class="text-center  ">Withdrawal</h1>
+        <div id="c1">
+            <input  [(ngModel)]="acno1"  id="s9" name="acno1" class="form-control mt-1" type="text" placeholder="Enter Account Number">
+        </div>
+        <div id="c1">
+            <input [(ngModel)]="psw1"  id="s10" name="uname1" class="form-control mt-1 " type="password" placeholder="Enter Password">
+        </div>
+        <div id="c2">
+            <input [(ngModel)]="amnt1" id="s11" name="Password1" class="form-control mt-1" type="text" placeholder="Enter Amount">
+        </div>
+        <div  class=" text-center mt-1">
+            <button (click)="withdrow()" class="btn btn-secondary ">Withdrow</button>
+
+
+        </div>
+    </form>
+</div>
