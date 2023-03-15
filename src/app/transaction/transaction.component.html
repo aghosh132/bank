@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Chivo+Mono:wght@100&display=swap" rel="stylesheet">
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 20%;
+  margin-left: 40%;
+  margin-top: 10%;
+}
+h2{
+    margin-left: 40%;
+    font-family: 'Fjalla One', sans-serif;
+
+
+}
+
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  color: #dddddd;
+}
+
+tr:nth-child(even) {
+  background-color: #302b2b;
+}
+tr:nth-child(odd) {
+  background-color: #302b2b;
+}
+</style>
+</head>
+<body>
+<div>
+<h2>Transaction Details</h2>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Amount</th>
+
+  </tr>
+  <tr *ngFor="let i of transactionArray">
+    <td>{{i.Type}}</td>
+    <td>{{i.Amount}}</td>
+  </tr>
+
+</table>
+</div>
+</body>
+</html>

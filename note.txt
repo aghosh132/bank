@@ -124,5 +124,37 @@ all components can access the content of service file
 ---create   ng g s filename
 
 
+Angular Directives
+------------------
 
 
+used to manipulate Dom 
+
+
+1-- component Directives
+2--- structural Directives
+------*ngFor
+
+
+
+
+
+form creattion in angular
+---------------------
+
+1.---- template driven form
+2.---- model driven form
+
+
+model driven form
+
+
+---reactive form
+--- reactiveformsmodule--- module used to build model form
+---formBuilder ------- class used to build model form
+
+
+a model contains---
+form group 
+array
+controlller
