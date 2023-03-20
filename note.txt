@@ -134,6 +134,7 @@ used to manipulate Dom
 1-- component Directives
 2--- structural Directives
 ------*ngFor
+------*ngIf
 
 
 
@@ -158,3 +159,32 @@ a model contains---
 form group 
 array
 controlller
+
+
+
+
+local storage in angular
+-----------------------
+
+c -localstorage.setItem()
+R -localstorage.getItem()
+U -localstorage.setItem()
+D- localstorage.removeItem()
+
+
+
+
+
+
+
+
+
+
+
+child parent communication in angular
+-------------------------------------
+
+
+parent - child data sharing
+--------------------------
+

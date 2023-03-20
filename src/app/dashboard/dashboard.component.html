@@ -1,18 +1,28 @@
 <h1>WELCOME {{user}}</h1>
 
 <div><h2><a routerLink="/transaction">View Transaction details</a></h2></div>
+<div>
 
+<button (click)="logout()" style="background-color: rgb(168, 207, 207);border: 1px;border-radius: 3px ; ">LOGOUT</button><br><br>
+
+
+<button style="background-color: rgb(168, 207, 207);border: 1px;border-radius: 3px ; ">DELETE</button>
+
+<app-delete></app-delete>
+
+
+</div>
 <div  id="c5">
-    <form style="height: 300px; margin-left: 100px; background-color: rgba(66, 71, 74, 0.14);" class="container w-25 p-5 mt-5 " action="">
+    <form [formGroup]="depositForm" style="height: 300px; margin-left: 100px; background-color: rgba(66, 71, 74, 0.14);" class="container w-25 p-5 mt-5 " action="">
         <h1 style="color: rgb(122, 127, 131);" class="text-center ">Deposit</h1>
         <div>
-            <input [(ngModel)]="acno"   id="s6" name="acnos" class="form-control mt-3 " type="text" placeholder="Enter Account Number">
+            <input formControlName="acno"   id="s6" name="acnos" class="form-control mt-3 " type="text" placeholder="Enter Account Number">
         </div>
         <div>
-            <input [(ngModel)]="psw" id="s7" name="unames" class="form-control mt-3 " type="password" placeholder="Enter Password">
+            <input formControlName="psw" id="s7" name="unames" class="form-control mt-3 " type="password" placeholder="Enter Password">
         </div>
         <div>
-            <input [(ngModel)]="amnt"  id="s8" name="Passwords" class="form-control mt-2" type="text" placeholder="Enter Amount">
+            <input formControlName="amnt"  id="s8" name="Passwords" class="form-control mt-2" type="text" placeholder="Enter Amount">
         </div>
         <div  class=" text-center mt-3">
             <button (click)="deposit()" class="btn btn-secondary ">Deposit</button>

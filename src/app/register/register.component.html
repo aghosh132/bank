@@ -9,17 +9,26 @@
 </head>
 <body>
     <div  id="c4">
-        <form style="height: 300px; margin-left: 100px; background-color: rgba(66, 71, 74, 0.14);" class="container  p-5 mt-5 " action="">
+        <form [formGroup]="registerForm" style="height: 300px; margin-left: 100px; background-color: rgba(66, 71, 74, 0.14);" class="container  p-5 mt-5 " action="">
             <h1 style="color: rgb(122, 127, 131);" class="text-center ">Sign IN</h1>
             <div id="c1">
-                <input [(ngModel)]="acno"  id="s1" name="acno" class="form-control mt-3 " type="text" placeholder="Enter Account Number">
+                <input formControlName="acno"  id="s1" name="acno" class="form-control mt-3 " type="text" placeholder="Enter Account Number">
+            </div>
+            <div *ngIf="this.registerForm.get('acno')?.errors && this.registerForm.get('acno')?.touched" class="text-start ms-2">
+              <p class="text-danger"> include Numbers only</p>
             </div>
             <div id="c1">
-                <input [(ngModel)]="uname"  id="s2" name="uname" class="form-control mt-3 " type="text" placeholder="Enter Username">
+                <input formControlName="uname"  id="s2" name="uname" class="form-control mt-3 " type="text" placeholder="Enter Username">
             </div>
+            <div *ngIf="this.registerForm.get('uname')?.errors && this.registerForm.get('uname')?.touched" >
+                <p class="text-danger"> include characters only</p>
+              </div>
             <div id="c2">
-                <input [(ngModel)]="psw" id="s3" name="Password" class="form-control mt-3" type="text" placeholder="Enter Password">
+                <input formControlName="psw" id="s3" name="Password" class="form-control mt-3" type="text" placeholder="Enter Password">
             </div>
+            <div *ngIf="this.registerForm.get('psw')?.errors && this.registerForm.get('psw')?.touched">
+                <p class="text-danger"> include characters only</p>
+              </div>
             <div (click)="register()" class=" text-center mt-3">
                 <button class="btn btn-secondary ">Sign UP</button>
     

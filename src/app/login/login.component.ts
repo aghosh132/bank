@@ -1,5 +1,6 @@
 import { R3SelectorScopeMode } from '@angular/compiler';
 import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../service/data.service';
 
@@ -8,18 +9,93 @@ import { DataService } from '../service/data.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+  export class LoginComponent {
+    data="your perfect banking partner"
+    data1="Enter your ac number"
+    acno:any 
+    psw:any 
+    // userDetails:any={
+    //   1000:{username:"anu",acno:1000,password:"abc123",balance:0},
+    //   1001:{username:"venu",acno:1001,password:"abc123",balance:0},
+    //   1002:{username:"thanu",acno:1002,password:"abc123",balance:0},
+    //   1003:{username:"manu",acno:1003,password:"abc123",balance:0}
+    // }
+    constructor(private router:Router,private ds:DataService,private fb:FormBuilder){}
+  
+    loginForm=this.fb.group({
+      acno: ['',[Validators.required,Validators.pattern('[0-9]+')]],
+      
+      psw:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]+')]]
+      
+      
+    })
+    
+    login(){
+      var acnum=this.loginForm.value.acno
+      var psw=this.loginForm.value.psw
+      if(this.loginForm.valid){
+      const result =this.ds.login(acnum,psw)
+      
+  
+      if(result){
+        alert("login success")
+          this.router.navigateByUrl("dashboard")
+          //redirection 
+         
+          
+        }
+        else{
+          alert("incorrect acno or password")
+        }
+      }
+      else{
+        alert('invalid form')
+      }
+     
+  
+    }
+  }
 
-constructor(private router:Router,private ds:DataService){
 
 
-}
-  data="your perfect banking partner"
-  data1="Enter Your Acc Number"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// constructor(private router:Router,private ds:DataService, private fb:FormBuilder ){
+// loginForm=this.fb.group({
+// acno:[]
+
+// })
+
+// }
+  // data="your perfect banking partner"
+  // data1="Enter Your Acc Number"
   //accno=""
   //or
-  acno:any
-  psw:any
+  // acno:any
+  // psw:any
 // userDetails:any={
 
 // 1000:{username:"anu",accno:1000,password:"abc123",balance:0},
@@ -28,20 +104,20 @@ constructor(private router:Router,private ds:DataService){
 // 1003:{username:"subin",accno:1003,password:"abc143",balance:0}
 // }
 
-login(){
+// login(){
 
-var acnum=this.acno
-var psw=this.psw
+// var acnum=this.acno
+// var psw=this.psw
 
-const result=this.ds.login(acnum,psw)
+// const result=this.ds.login(acnum,psw)
 
-if (result) {
-  alert("login success")
-  this.router.navigateByUrl("dashboard")
-}
-else{
-  alert("incorrect password or accnumber")
-}
+// if (result) {
+//   alert("login success")
+//   this.router.navigateByUrl("dashboard")
+// }
+// else{
+//   alert("incorrect password or accnumber")
+// }
 
 
 
@@ -63,9 +139,9 @@ else{
 //   alert('incorrect accnumber')
 // }
 
-}
 
-}
+
+
 
 
 
