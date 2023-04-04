@@ -34,19 +34,33 @@ import { DataService } from '../service/data.service';
       var acnum=this.loginForm.value.acno
       var psw=this.loginForm.value.psw
       if(this.loginForm.valid){
-      const result =this.ds.login(acnum,psw)
+      this.ds.login(acnum,psw).subscribe((result:any)=>{
+localStorage.setItem("currentUser",result.currentUser)
+localStorage.setItem("currentAcno",JSON.stringify(result.currentAcno))
+localStorage.setItem("token",JSON.stringify(result.token))
+
+
+
+      alert(result.message)
+      this.router.navigateByUrl("dashboard")
+      },
       
-  
-      if(result){
-        alert("login success")
-          this.router.navigateByUrl("dashboard")
-          //redirection 
+      result=>{
+      alert( result.error.message)
+
+      }
+      
+      )
+      // if(result){
+      //   alert("login success")
+      //     this.router.navigateByUrl("dashboard")
+      //     //redirection 
          
           
-        }
-        else{
-          alert("incorrect acno or password")
-        }
+      //   }
+      //   else{
+      //     alert("incorrect acno or password")
+      //   }
       }
       else{
         alert('invalid form')

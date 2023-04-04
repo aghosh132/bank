@@ -1,13 +1,8 @@
-<div class="w-25 container p-4 border mt-2 text-center" style="background-color: rgba(255, 235, 205, 0.041);">
+<div *ngIf="item" class="w-25 container p-4 border mt-2 text-center" style="background-color: rgba(255, 235, 205, 0.041);">
 <p>
-
-Are you sure , want to delete  your bank account ?
-
-
+Are you sure , want to delete  your bank account {{item}} ?
 </p>
-<button class="btn btn-success mt-2" >Yes</button>
-<button class="btn btn-danger mt-2">No</button>
-
-
+<button (click)="delete()" class="btn btn-success mt-2" >Yes</button>
+<button (click)="cancel()" class="btn btn-danger mt-2">No</button>
 
 </div>

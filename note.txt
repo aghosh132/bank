@@ -136,6 +136,9 @@ used to manipulate Dom
 ------*ngFor
 ------*ngIf
 
+3---Attribute Directives
+
+   --- [ngClass]
 
 
 
@@ -173,14 +176,6 @@ D- localstorage.removeItem()
 
 
 
-
-
-
-
-
-
-
-
 child parent communication in angular
 -------------------------------------
 
@@ -188,3 +183,66 @@ child parent communication in angular
 parent - child data sharing
 --------------------------
 
+@input() - decorater used to share data from parent to child.
+
+child - parent data sharing
+--------------------------
+
+
+
+
+
+date and time in angular
+
+------------
+
+date -class used to access current date data in angular
+
+
+Angular pipes
+---------
+
+used to convert datas to another format
+
+
+event creation in angular (user defined events)
+-------------------------------------------
+
+eventEmitter - class used to create events
+ emit() - method used to specify when the event happens
+ 
+
+
+
+
+ API creation in angular
+ ----------------
+
+ HttpClientModule - module
+ httpClient - class
+
+ methods 
+ ------
+get post put patch delete 
+
+
+
+-------------------------------
+asynchronus in js
+---
+ promise - then()
+         - catch()
+
+asynchronus in ts
+---                        rxjs (reactive extension for js)
+ 
+    observable - subscribe()
+               - catch()
+---------------------------------------
+
+
+
+Headers Creation In Angular
+--------------------------
+
+HttpHeaders - class used to generate Headers 

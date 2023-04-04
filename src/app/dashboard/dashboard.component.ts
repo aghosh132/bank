@@ -10,19 +10,19 @@ import { DataService } from '../service/data.service';
 })
 export class DashboardComponent implements OnInit {
 
+
 acno:any
 psw:any
 amnt:any
 
 acno1:any
-  psw1:any
-  amnt1:any
-
+psw1:any
+amnt1:any
 
 
 user:any
 
-
+adetails:any
 
 
 
@@ -33,6 +33,10 @@ user:any
 constructor(private ds:DataService ,private fb:FormBuilder ,private router:Router){
 
 this.user=this.ds.currentUser
+this.adetails=new Date()
+
+
+
 
 
 // access data from dataservice aand store in varriable
@@ -57,14 +61,14 @@ var acno=this.depositForm.value.acno
 var psw=this.depositForm.value.psw
 var amnt=this.depositForm.value.amnt
 if (this.depositForm.valid) {
-  const result=this.ds.deposit(acno,psw,amnt)
-  if (result) {
-    alert(`your acc has been credited with amount ${amnt} and the availabe balance is Rs.${result}`)
+  this.ds.deposit(acno,psw,amnt).subscribe((result:any)=>{
+    alert(result.message)
+  },
+  result=>{
+    alert(result.error.message);
   }
-  else{
-    alert("your acc num or password is incorrect")
+    )
   }
-}
 else{
   alert("form is invalid")
 }
@@ -78,15 +82,16 @@ withdrow(){
   var psw=this.psw1
   var amnt=this.amnt1
   
-  const result=this.ds.withdrow(acno,psw,amnt)
+  this.ds.withdrow(acno,psw,amnt).subscribe((result:any)=>{
   
-  if (result) {
-    alert(`your acc has been credited with amount ${amnt} and the availabe balance is Rs.${result}`)
+    alert(result.message)
+  },
+  result=>{
+  
+    alert(result.error.message)
   }
-  else{
-    alert("your acc num or password is incorrect")
-  }
-  }
+  )
+}
 
 
 
@@ -97,7 +102,22 @@ this.router.navigateByUrl("")
 }
 
 
+deleteACC(){
+  this.acno=JSON.parse(localStorage.getItem("currentAcno") || "")
+}
 
+ondeleteAcc(event:any){
 
+this.ds.deleteAcc(event).subscribe((result:any)=>{
+  alert(result.message)
+  this.logout()
+  // this.router.navigateByUrl("")
+})
+}
+
+cancelchild(){
+  this.acno=""
+}
 
 }
+

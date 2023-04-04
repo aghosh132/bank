@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators ,FormControl} from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../service/data.service';
 
@@ -19,8 +19,8 @@ export class RegisterComponent {
 
   registerForm=this.fb.group({
     acno: ['',[Validators.required,Validators.pattern('[0-9]+')]],
-    uname: ['',[Validators.required,Validators.pattern('[0-9]+')]] ,
-    psw:['',[Validators.required,Validators.pattern('[0-9]+')]]
+    uname: ['',[Validators.required,Validators.pattern('[0-9a-z]+')]] ,
+    psw:['',[Validators.required,Validators.pattern('[0-9a-z]+')]]
   })
 
   register() {
@@ -28,15 +28,25 @@ export class RegisterComponent {
  var uname= this.registerForm.value.uname
  var psw = this.registerForm.value.psw 
 if(this.registerForm.valid){
-  const result = this.ds.register(acno,uname,psw)
-  if(result){
-   alert('registered')
-   this.router.navigateByUrl("")
+   this.ds.register(acno,uname,psw).subscribe((result:any)=>{
+
+alert(result.message)
+this.router.navigateByUrl("")
+
+   },
+   result=>{
+    alert(result.error.message)
+   }
+    
+    )
+  // if(result){
+  //  alert('registered')
+  //  this.router.navigateByUrl("")
    
-  }
-  else{
-   alert('user already presnt')
-  }
+  // }
+  // else{
+  //  alert('user already presnt')
+  // }
   
  
 
